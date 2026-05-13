@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+    <title>LOGIN</title>
+
+    <!-- css 파일 연결 -->
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<script>
+
+    /* 우클릭 방지 */
+    document.addEventListener("contextmenu", (e) => {
+
+        e.preventDefault();
+    });
+
+    /* Ctrl + 마우스휠 확대 방지 */
+    document.addEventListener("wheel", (e) => {
+
+        if (e.ctrlKey) {
+
+            e.preventDefault();
+        }
+
+    }, { passive: false });
+
+    /* Ctrl + +/- 확대 방지 */
+    document.addEventListener("keydown", (e) => {
+
+        if (
+            (e.ctrlKey || e.metaKey) &&
+            (
+                e.key === "+" ||
+                e.key === "-" ||
+                e.key === "="
+            )
+        ) {
+
+            e.preventDefault();
+        }
+    });
+
+    /* 모바일 핀치줌 방지 */
+    document.addEventListener('touchmove', (e) => {
+
+        if (e.scale !== 1) {
+
+            e.preventDefault();
+        }
+
+    }, { passive: false });
+
+</script>
+
+<body>
+    <div class="top-mobile-links">
+
+        <a href="/" class="main-link">
+            🏠 MAIN
+        </a>
+
+        <a href="/signup" class="sign-link">
+            🔑 SIGN UP
+        </a>
+    </div>
+    <div class="container right-panel-active">
+        <!-- Sign In -->
+        <div class="container__form container--signin">
+            <!-- sign in 버튼 누르면 UserController /login으로 input 값 전송  -->
+            <form action="/login" method="post" class="form" id="form2">
+                <h2 class="form__title">Sign In</h2>
+                <p th:text="${error}" style="color: red;"></p>
+                <!-- 이메일 변수명 email -->
+                <input type="email" name="email" placeholder="Email" class="input" required />
+                <!-- 비밀번호 변수명 password -->
+                <input type="password" name="password" placeholder="Password" class="input" required />
+                <!-- 비밀번호 찾기 링크 -->
+                <a href="/password" class="link">Forgot your password?</a>
+                <!-- 로그인 버튼 -->
+                <button class="btn">Sign In</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay">
+                <div class="overlay__panel overlay--left">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
+    <title>SIGN UP</title>
+
+    <!-- css 파일 연결 -->
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<script>
+
+    /* 우클릭 방지 */
+    document.addEventListener("contextmenu", (e) => {
+
+        e.preventDefault();
+    });
+
+    /* Ctrl + 마우스휠 확대 방지 */
+    document.addEventListener("wheel", (e) => {
+
+        if (e.ctrlKey) {
+
+            e.preventDefault();
+        }
+
+    }, { passive: false });
+
+    /* Ctrl + +/- 확대 방지 */
+    document.addEventListener("keydown", (e) => {
+
+        if (
+            (e.ctrlKey || e.metaKey) &&
+            (
+                e.key === "+" ||
+                e.key === "-" ||
+                e.key === "="
+            )
+        ) {
+
+            e.preventDefault();
+        }
+    });
+
+    /* 모바일 핀치줌 방지 */
+    document.addEventListener('touchmove', (e) => {
+
+        if (e.scale !== 1) {
+
+            e.preventDefault();
+        }
+
+    }, { passive: false });
+
+</script>
+
+<body>
+    <div class="top-mobile-links">
+
+        <a href="/" class="main-link">
+            🏠 MAIN
+        </a>
+
+        <a href="/login" class="sign-link">
+            🔑 SIGN IN
+        </a>
+    </div>
+    <div class="container right-panel-active">
+        <!-- Sign Up -->
+        <div class="container__form container--signup">
+            <!-- SIGN UP 버튼 누르면 UserController /signup으로 input값 전송 -->
+            <form action="/signup" method="post" class="form" id="form1">
+                <h2 class="form__title">Sign Up</h2>
+                <!-- 이름 변수명 username -->
+                <input type="text" id="username" name="username" placeholder="User Name" class="input" required />
+                <!-- 이메일 변수명 email -->
+                <input type="email" id="email" name="email" placeholder="Email" class="input" required />
+                <!-- 중복체크 버튼 -->
+                <!-- Controller에 check-email 추가하기 -->
+                <button type="button" id="check-email" class="btn">중복체크</button>
+                <!-- 비밀번호 변수명 password -->
+                <input type="password" id="password" name="password" placeholder="Password" class="input" required />
+
+                <!-- 모바일 비밀번호 조건 -->
+                <div class="mobile-password-rules">
+
+                    <p id="mobile-rule-special" class="invalid">
+                        ✖ 특수문자 1개 이상
+                    </p>
+
+                    <p id="mobile-rule-letter" class="invalid">
+                        ✖ 알파벳 포함
+                    </p>
+
+                    <p id="mobile-rule-length" class="invalid">
+                        ✖ 최소 12자 이상
+                    </p>
+
+                </div>
+
+                <!-- 비밀번호 확인 변수명 password-check -->
+                <!-- password 입력값과 password-check 입력값이 동일해야 가입 가능 -->
+                <input type="password" id="password-check" placeholder="Password Check" class="input" required />
+                <!-- 회원가입 버튼 / 모든 조건 만족해야 버튼 활성화 (disabled) -->
+                <button type="submit" id="sign-up" class="btn">Sign Up</button>
+            </form>
+        </div>
+
+        <!-- Overlay -->
+        <div class="container__overlay">
+            <div class="overlay" style="background-position: top 40%;">
+                <div class="overlay__panel overlay--left">
+                    <div class="password-requirements">
+
+                        <strong>
+                            🔐 PASSWORD RULE
+                        </strong>
+
+                        <ul>
+
+                            <li id="rule-special" class="invalid">
+                                ✖ 특수문자 1개 이상
+                            </li>
+
+                            <li id="rule-letter" class="invalid">
+                                ✖ 알파벳 포함
+                            </li>
+
+                            <li id="rule-length" class="invalid">
+                                ✖ 최소 12자 이상
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- java script 파일 연결 -->
+    <script src="/javascript/signup.js"></script>
+</body>
+
+</html>
