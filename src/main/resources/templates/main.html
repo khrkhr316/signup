@@ -59,52 +59,76 @@
 
 <body>
 
-    <div class="background-blur"></div>
+    <div class="background"></div>
 
-    <div class="container">
+    <main class="layout">
 
-        <div class="emoji">✨</div>
+        <section class="hero">
 
-        <h1 class="title">WELCOME</h1>
-
-        <!-- session 있으면 = 로그인 상태 -->
-        <div th:if="${loginUser != null}">
-
-            <div class="welcome-box">
-                <p class="welcome-text">
-                    😍 안녕하세요 😍
-                </p>
+            <div class="logo">
+                AUTH SERVICE
             </div>
 
-            <div class="menu">
-                <a href="/logout" class="btn logout-btn">
-                    😐 Logout 😐
-                </a>
-            </div>
+            <h1>
+                Secure Authentication <br>
+                For Modern Web Services
+            </h1>
 
-        </div>
-
-        <!-- session 없으면 = 로그아웃 상태 -->
-        <div th:if="${loginUser == null}">
-            <p class="subtitle">
-                로그인하고 서비스를 이용해보세요
+            <p>
+                Spring Boot 기반 사용자 인증 시스템<br>
+                회원가입, 로그인, 세션 인증, 보안 기능 구현
             </p>
 
-            <div class="menu">
+        </section>
 
-                <a href="/signup" class="btn">
-                    Sign Up
-                </a>
+        <section class="card">
 
-                <a href="/login" class="btn">
-                    Sign In
+            <div class="status-dot"></div>
+
+            <h2>Welcome Back</h2>
+
+            <!-- 로그인 상태 -->
+            <div th:if="${loginUser != null}">
+
+                <div class="user-box">
+                    <span class="user-label">
+                        Logged In
+                    </span>
+
+                    <p class="user-email" th:text="${loginUser}">
+                    </p>
+                </div>
+
+                <a href="/logout" class="primary-btn logout-btn">
+                    Logout
                 </a>
 
             </div>
 
-        </div>
+            <!-- 로그아웃 상태 -->
+            <div th:if="${loginUser == null}">
 
-    </div>
+                <p class="description">
+                    서비스를 이용하려면 로그인해주세요.
+                </p>
+
+                <div class="button-group">
+
+                    <a href="/signup" class="primary-btn">
+                        Create Account
+                    </a>
+
+                    <a href="/login" class="secondary-btn">
+                        Sign In
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
 
 </body>
 

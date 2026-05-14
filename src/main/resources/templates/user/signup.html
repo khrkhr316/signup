@@ -59,91 +59,104 @@
 </script>
 
 <body>
-    <div class="top-mobile-links">
 
-        <a href="/" class="main-link">
-            🏠 MAIN
-        </a>
+    <div class="background"></div>
 
-        <a href="/login" class="sign-link">
-            🔑 SIGN IN
-        </a>
-    </div>
-    <div class="container right-panel-active">
-        <!-- Sign Up -->
-        <div class="container__form container--signup">
-            <!-- SIGN UP 버튼 누르면 UserController /signup으로 input값 전송 -->
-            <form action="/signup" method="post" class="form" id="form1">
-                <h2 class="form__title">Sign Up</h2>
-                <!-- 이름 변수명 username -->
-                <input type="text" id="username" name="username" placeholder="User Name" class="input" required />
-                <!-- 이메일 변수명 email -->
-                <input type="email" id="email" name="email" placeholder="Email" class="input" required />
-                <!-- 중복체크 버튼 -->
-                <!-- Controller에 check-email 추가하기 -->
-                <button type="button" id="check-email" class="btn">중복체크</button>
-                <!-- 비밀번호 변수명 password -->
-                <input type="password" id="password" name="password" placeholder="Password" class="input" required />
+    <main class="layout">
 
-                <!-- 모바일 비밀번호 조건 -->
-                <div class="mobile-password-rules">
+        <!-- LEFT -->
+        <section class="hero">
 
-                    <p id="mobile-rule-special" class="invalid">
-                        ✖ 특수문자 1개 이상
-                    </p>
-
-                    <p id="mobile-rule-letter" class="invalid">
-                        ✖ 알파벳 포함
-                    </p>
-
-                    <p id="mobile-rule-length" class="invalid">
-                        ✖ 최소 12자 이상
-                    </p>
-
-                </div>
-
-                <!-- 비밀번호 확인 변수명 password-check -->
-                <!-- password 입력값과 password-check 입력값이 동일해야 가입 가능 -->
-                <input type="password" id="password-check" placeholder="Password Check" class="input" required />
-                <!-- 회원가입 버튼 / 모든 조건 만족해야 버튼 활성화 (disabled) -->
-                <button type="submit" id="sign-up" class="btn">Sign Up</button>
-            </form>
-        </div>
-
-        <!-- Overlay -->
-        <div class="container__overlay">
-            <div class="overlay" style="background-position: top 40%;">
-                <div class="overlay__panel overlay--left">
-                    <div class="password-requirements">
-
-                        <strong>
-                            🔐 PASSWORD RULE
-                        </strong>
-
-                        <ul>
-
-                            <li id="rule-special" class="invalid">
-                                ✖ 특수문자 1개 이상
-                            </li>
-
-                            <li id="rule-letter" class="invalid">
-                                ✖ 알파벳 포함
-                            </li>
-
-                            <li id="rule-length" class="invalid">
-                                ✖ 최소 12자 이상
-                            </li>
-
-                        </ul>
-
-                    </div>
-                </div>
+            <div class="badge">
+                AUTH SERVICE
             </div>
-        </div>
-    </div>
 
-    <!-- java script 파일 연결 -->
+            <h1>
+                Create Your <br>
+                Secure Account
+            </h1>
+
+            <p>
+                Spring Boot 기반 인증 시스템 <br>
+                보안 중심 회원가입 및 로그인 기능 구현
+            </p>
+
+            <div class="feature-box">
+
+                <div>✔ BCrypt Password Encryption</div>
+
+                <div>✔ Session Authentication</div>
+
+                <div>✔ AJAX Email Validation</div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT -->
+        <section class="card">
+
+            <div class="top-nav">
+
+                <a href="/">Main</a>
+
+                <a href="/login">Sign In</a>
+
+            </div>
+
+            <h2>Create Account</h2>
+
+            <p class="description">
+                새로운 계정을 생성하세요.
+            </p>
+
+            <form action="/signup" method="post" class="form">
+
+                <input type="text" name="username" placeholder="User Name" class="input" required>
+
+                <input type="email" id="email" name="email" placeholder="Email" class="input" required>
+
+                <button type="button" id="check-email" class="secondary-btn">
+
+                    Check Email
+
+                </button>
+
+                <input type="password" id="password" name="password" placeholder="Password" class="input" required>
+
+                <!-- PASSWORD RULE -->
+                <div class="password-rules">
+
+                    <p id="rule-special" class="invalid">
+                        ✖ Special Character
+                    </p>
+
+                    <p id="rule-letter" class="invalid">
+                        ✖ Alphabet Required
+                    </p>
+
+                    <p id="rule-length" class="invalid">
+                        ✖ Minimum 12 Characters
+                    </p>
+
+                </div>
+
+                <input type="password" id="password-check" placeholder="Confirm Password" class="input" required>
+
+                <button type="submit" id="sign-up" class="primary-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
     <script src="/javascript/signup.js"></script>
+
 </body>
 
 </html>

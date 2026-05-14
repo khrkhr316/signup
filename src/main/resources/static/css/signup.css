@@ -1,46 +1,3 @@
-/* 드래그 방지 */
-* {
-
-    -webkit-user-select: none;
-
-    -moz-user-select: none;
-
-    -ms-user-select: none;
-
-    user-select: none;
-
-    -webkit-touch-callout: none;
-}
-
-:root {
-
-    /* COLORS */
-    --white: #f5f7fa;
-    --gray: #333;
-    --blue: #0367a6;
-    --lightblue: #008997;
-
-    /* RADII */
-    --button-radius: 30px;
-
-    /* SIZE */
-    --container-height: 560px;
-
-    font-size: 16px;
-
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Oxygen,
-        Ubuntu,
-        Cantarell,
-        "Open Sans",
-        "Helvetica Neue",
-        sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -49,797 +6,385 @@
 
 body {
 
-    align-items: center;
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+
+    min-height: 100vh;
 
     background:
-        linear-gradient(135deg,
-            #0367a6 0%,
-            #008997 100%);
+        #0f172a;
+
+    color: white;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* BACKGROUND */
+.background {
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        radial-gradient(circle at top left,
+            rgba(59,130,246,0.18),
+            transparent 35%),
+
+        radial-gradient(circle at bottom right,
+            rgba(14,165,233,0.15),
+            transparent 35%);
+}
+
+/* LAYOUT */
+.layout {
+
+    position: relative;
+
+    z-index: 2;
+
+    min-height: 100vh;
 
     display: flex;
 
     justify-content: center;
+    align-items: center;
 
-    min-height: 100vh;
+    gap: 120px;
 
-    position: relative;
-
-    overflow: hidden;
+    padding: 40px;
 }
 
-/* =========================
-   TOP BUTTONS
-========================= */
-.top-mobile-links {
+/* HERO */
+.hero {
 
-    position: absolute;
+    max-width: 520px;
+}
 
-    top: 30px;
+.badge {
 
-    left: 0;
+    display: inline-block;
 
-    width: 100%;
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(255,255,255,0.08);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    margin-bottom: 28px;
+
+    font-size: 0.9rem;
+}
+
+.hero h1 {
+
+    font-size: 4rem;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    margin-bottom: 24px;
+}
+
+.hero p {
+
+    color: #cbd5e1;
+
+    font-size: 1.1rem;
+
+    line-height: 1.8;
+
+    margin-bottom: 28px;
+}
+
+/* FEATURE BOX */
+.feature-box {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.feature-box div {
+
+    padding: 16px 20px;
+
+    border-radius: 18px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    color: #e2e8f0;
+}
+
+/* CARD */
+.card {
+
+    width: 420px;
+
+    padding: 42px;
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.05);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.35);
+}
+
+/* TOP NAV */
+.top-nav {
 
     display: flex;
 
     justify-content: space-between;
 
-    padding: 0 40px;
-
-    z-index: 9999;
+    margin-bottom: 36px;
 }
 
-/* 공통 버튼 */
-.main-link,
-.sign-link {
-
-    width: 170px;
-
-    height: 48px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
+.top-nav a {
 
     text-decoration: none;
 
-    color: white;
+    color: #cbd5e1;
 
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 
-    font-weight: bold;
-
-    border-radius: 30px;
-
-    background: rgba(255, 255, 255, 0.15);
-
-    border: 1px solid rgba(255, 255, 255, 0.25);
-
-    backdrop-filter: blur(10px);
-
-    transition: all 0.25s ease;
+    transition: 0.2s ease;
 }
 
-/* hover */
-.main-link:hover,
-.sign-link:hover {
-
-    background: rgba(255, 255, 255, 0.25);
-
-    transform: translateY(-2px);
+.top-nav a:hover {
 
     color: white;
-
-    text-decoration: none;
 }
 
-.form__title {
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
+/* TEXT */
+.card h2 {
 
     font-size: 2rem;
 
-    color: var(--gray);
-
-    letter-spacing: 1px;
+    margin-bottom: 12px;
 }
 
-.link {
+.description {
 
-    color: var(--gray);
+    color: #94a3b8;
 
-    font-size: 0.9rem;
+    margin-bottom: 30px;
 
-    margin: 1.5rem 0;
-
-    text-decoration: none;
+    line-height: 1.6;
 }
 
-.container {
-
-    background-color: rgba(255, 255, 255, 0.96);
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 1rem 2rem rgba(0, 0, 0, 0.25);
-
-    height: var(--container-height);
-
-    max-width: 900px;
-
-    overflow: hidden;
-
-    position: relative;
-
-    width: 100%;
-
-    backdrop-filter: blur(10px);
-}
-
-.container__form {
-
-    height: 100%;
-
-    position: absolute;
-
-    top: 0;
-
-    transition: all 0.6s ease-in-out;
-}
-
-.container--signin {
-
-    left: 0;
-
-    width: 50%;
-
-    z-index: 2;
-}
-
-.container.right-panel-active .container--signin {
-
-    transform: translateX(100%);
-}
-
-.container--signup {
-
-    left: 0;
-
-    opacity: 0;
-
-    width: 50%;
-
-    z-index: 1;
-}
-
-.container.right-panel-active .container--signup {
-
-    animation: show 0.6s;
-
-    opacity: 1;
-
-    transform: translateX(100%);
-
-    z-index: 5;
-}
-
-.container__overlay {
-
-    height: 100%;
-
-    left: 50%;
-
-    overflow: hidden;
-
-    position: absolute;
-
-    top: 0;
-
-    transition: transform 0.6s ease-in-out;
-
-    width: 50%;
-
-    z-index: 100;
-}
-
-.container.right-panel-active .container__overlay {
-
-    transform: translateX(-100%);
-}
-
-.overlay {
-
-    background:
-        linear-gradient(rgba(3, 103, 166, 0.72),
-            rgba(0, 137, 151, 0.72)),
-        url("/img/overlayimg.jpg");
-
-    background-position: -150px center;
-
-    background-repeat: no-repeat;
-
-    height: 100%;
-
-    left: -100%;
-
-    position: relative;
-
-    transform: translateX(0);
-
-    transition: transform 0.6s ease-in-out;
-
-    width: 200%;
-
-    z-index: 1;
-}
-
-.container.right-panel-active .overlay {
-
-    transform: translateX(50%);
-}
-
-.overlay__panel {
-
-    align-items: center;
-
-    display: flex;
-
-    flex-direction: column;
-
-    height: 100%;
-
-    justify-content: center;
-
-    position: absolute;
-
-    text-align: center;
-
-    top: 0;
-
-    transform: translateX(0);
-
-    transition: transform 0.6s ease-in-out;
-
-    width: 50%;
-
-    padding: 40px;
-}
-
-.overlay--left {
-
-    transform: translateX(-20%);
-}
-
-.container.right-panel-active .overlay--left {
-
-    transform: translateX(0);
-}
-
-.overlay--right {
-
-    right: 0;
-
-    transform: translateX(0);
-}
-
-.container.right-panel-active .overlay--right {
-
-    transform: translateX(20%);
-}
-
-.btn {
-
-    background-image:
-        linear-gradient(90deg,
-            var(--blue) 0%,
-            var(--lightblue) 74%);
-
-    border-radius: var(--button-radius);
-
-    border: none;
-
-    color: var(--white);
-
-    cursor: pointer;
-
-    font-size: 0.85rem;
-
-    font-weight: bold;
-
-    letter-spacing: 0.12rem;
-
-    padding: 0.95rem 4rem;
-
-    text-transform: uppercase;
-
-    transition: all 0.25s ease;
-
-    box-shadow:
-        0 8px 20px rgba(3, 103, 166, 0.25);
-
-    z-index: 999;
-}
-
-.form>.btn {
-
-    margin-top: 1.5rem;
-}
-
-.btn:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 25px rgba(3, 103, 166, 0.35);
-}
-
-.btn:active {
-
-    transform: scale(0.96);
-}
-
-.btn:focus {
-
-    outline: none;
-}
-
+/* FORM */
 .form {
 
-    background-color: transparent;
-
     display: flex;
 
-    align-items: center;
-
-    justify-content: center;
-
     flex-direction: column;
-
-    padding: 0 3.5rem;
-
-    height: 100%;
-
-    text-align: center;
 }
 
 .input {
 
-    background-color: #fff;
-
-    border: 1px solid #ddd;
-
-    border-radius: 14px;
-
-    padding: 1rem;
-
-    margin: 0.55rem 0;
-
     width: 100%;
+
+    height: 54px;
+
+    border: none;
+
+    outline: none;
+
+    border-radius: 16px;
+
+    padding: 0 18px;
+
+    margin-bottom: 18px;
+
+    background:
+        rgba(255,255,255,0.06);
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    color: white;
 
     font-size: 0.95rem;
 
-    transition: all 0.2s ease;
+    transition: 0.25s ease;
 }
 
 .input:focus {
 
-    outline: none;
-
-    border-color: var(--lightblue);
+    border-color:
+        rgba(59,130,246,0.6);
 
     box-shadow:
-        0 0 0 4px rgba(0, 137, 151, 0.15);
+        0 0 0 4px rgba(59,130,246,0.15);
 }
 
-/* 비밀번호 조건 박스 */
-.password-requirements {
+.input::placeholder {
 
-    width: 85%;
+    color: #64748b;
+}
 
-    padding: 24px 22px;
+/* BUTTON */
+.primary-btn,
+.secondary-btn {
 
-    border-radius: 24px;
+    height: 54px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.primary-btn {
+
+    background: white;
+
+    color: #0f172a;
+
+    margin-top: 12px;
+}
+
+.primary-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+
+    margin-bottom: 18px;
 
     background:
-        rgba(255, 255, 255, 0.01);
-
-    backdrop-filter: blur(14px);
+        rgba(255,255,255,0.06);
 
     border:
-        1px solid rgba(255, 255, 255, 0.18);
-
-    box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.15);
+        1px solid rgba(255,255,255,0.08);
 
     color: white;
-
-    text-align: left;
-
-    line-height: 2;
-
-    margin-bottom: 2rem;
-
-    position: relative;
-
-    overflow: hidden;
-
-    pointer-events: auto;
 }
 
-/* 상단 강조 라인 */
-.password-requirements::before {
-
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-
-    left: 0;
-
-    width: 100%;
-
-    height: 4px;
+.secondary-btn:hover {
 
     background:
-        linear-gradient(90deg,
-            #ffffff,
-            rgba(255, 255, 255, 0.2));
+        rgba(255,255,255,0.1);
 }
 
-/* 제목 느낌 */
-.password-requirements strong {
-
-    display: block;
-
-    font-size: 1rem;
+/* PASSWORD RULES */
+.password-rules {
 
     margin-bottom: 12px;
-
-    letter-spacing: 1px;
 }
 
-/* 리스트 스타일 */
-.password-requirements ul {
+.password-rules p {
 
-    list-style: none;
+    font-size: 0.85rem;
 
-    padding: 0;
+    margin-bottom: 8px;
 
-    margin: 0;
+    transition: 0.2s ease;
 }
 
-.password-requirements li {
+.invalid {
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    font-size: 0.92rem;
-
-    opacity: 0.95;
+    color: #94a3b8;
 }
 
-/* 비밀번호 조건 상태 */
-.password-requirements li {
+.valid {
 
-    transition: all 0.25s ease;
-
-    font-weight: 500;
+    color: #22c55e;
 }
 
-/* 실패 */
-.password-requirements li.invalid {
+/* ERROR */
+.error-message {
 
-    color: rgba(255, 255, 255, 0.65);
+    color: #fca5a5;
+
+    margin-bottom: 14px;
+
+    font-size: 0.9rem;
 }
 
-/* 성공 */
-.password-requirements li.valid {
+/* LINK */
+.forgot-link {
 
-    color: #7CFFB2;
+    color: #cbd5e1;
 
-    text-shadow:
-        0 0 8px rgba(124, 255, 178, 0.4);
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    margin-bottom: 18px;
 }
 
-#check-email {
+.forgot-link:hover {
 
-    font-size: 0.78rem;
-
-    padding: 0.75rem 1.5rem;
-
-    margin-top: 0.7rem;
-
-    border-radius: 20px;
-
-    width: 100%;
+    color: white;
 }
 
-@keyframes show {
+/* MOBILE */
+@media (max-width: 1100px) {
 
-    0%,
-    49.99% {
+    .layout {
 
-        opacity: 0;
+        flex-direction: column;
 
-        z-index: 1;
+        text-align: center;
+
+        gap: 60px;
     }
 
-    50%,
-    100% {
+    .hero h1 {
 
-        opacity: 1;
-
-        z-index: 5;
+        font-size: 3rem;
     }
 }
 
-
-/* =========================
-   MOBILE RESPONSIVE
-========================= */
-@media screen and (max-width: 768px) {
+@media (max-width: 600px) {
 
     body {
-
-        padding: 80px 20px 20px;
 
         overflow-y: auto;
     }
 
-    /* MAIN 버튼 보이게 */
-    body::before {
+    .layout {
 
-        top: 18px;
-
-        left: 20px;
-
-        font-size: 0.78rem;
-
-        padding: 9px 15px;
-
-        z-index: 9999;
+        padding: 24px;
     }
 
-    .main-link {
+    .hero h1 {
 
-        top: 18px;
-
-        left: 20px;
-
-        width: 140px;
-
-        height: 40px;
-
-        z-index: 10000;
+        font-size: 2.2rem;
     }
 
-    /* 컨테이너 */
-    .container {
+    .card {
 
         width: 100%;
-
-        max-width: 420px;
-
-        min-height: auto;
-
-        height: auto;
-
-        display: flex;
-
-        flex-direction: column;
-    }
-
-    /* 회원가입 영역 */
-    .container__form,
-    .container--signup {
-
-        position: relative;
-
-        width: 100%;
-
-        transform: none !important;
-
-        opacity: 1 !important;
-
-        left: 0;
-
-        top: 0;
-    }
-
-    /* 오버레이 */
-    .container__overlay {
-
-        position: relative;
-
-        width: 100%;
-
-        left: 0;
-
-        transform: none !important;
-
-        height: auto;
-
-        order: -1;
-    }
-
-    .overlay {
-
-        background:
-            linear-gradient(rgba(3, 103, 166, 0.72),
-                rgba(0, 137, 151, 0.72));
-
-        background-size: cover;
-
-        background-position: center;
-
-        background-repeat: no-repeat;
-
-        width: 100%;
-
-        left: 0;
-
-        transform: none !important;
-
-        border-radius:
-            28px 28px 0 0;
-    }
-
-    .overlay__panel {
-
-        position: relative;
-
-        width: 100%;
-
-        transform: none !important;
-
-        padding: 20px;
-    }
-
-    /* 비밀번호 조건 박스 작게 */
-    .password-requirements {
-
-        width: 100%;
-
-        padding: 14px 16px;
-
-        margin-bottom: 12px;
-
-        border-radius: 18px;
-    }
-
-    .password-requirements strong {
-
-        font-size: 0.85rem;
-
-        margin-bottom: 8px;
-    }
-
-    .password-requirements li {
-
-        font-size: 0.78rem;
-
-        line-height: 1.7;
-    }
-
-    /* Sign In 버튼 작게 + 하단 */
-    #signIn {
-
-        width: 100%;
-
-        max-width: 160px;
-
-        padding: 0.75rem 1rem;
-
-        font-size: 0.75rem;
-
-        margin-top: 10px;
-    }
-
-    /* form */
-    .form {
-
-        padding: 35px 22px;
-    }
-
-    .form__title {
-
-        font-size: 1.6rem;
-    }
-
-    .input {
-
-        font-size: 0.9rem;
-
-        padding: 0.9rem;
-    }
-
-    .btn {
-
-        width: 100%;
-    }
-}
-
-/* 모바일 상단 버튼 */
-.top-mobile-links {
-
-    top: 18px;
-
-    padding: 0 20px;
-}
-
-.main-link,
-.sign-link {
-
-    width: 135px;
-
-    height: 42px;
-
-    font-size: 0.78rem;
-}
-
-
-/* =========================
-   모바일 비밀번호 조건
-========================= */
-
-/* 기본은 숨김 */
-.mobile-password-rules {
-
-    display: none;
-}
-
-/* 모바일 */
-@media screen and (max-width: 768px) {
-
-    /* 기존 박스 숨김 */
-    .password-requirements {
-
-        display: none;
-    }
-
-    /* 모바일 조건 표시 */
-    .mobile-password-rules {
-
-        display: block;
-
-        width: 100%;
-
-        margin-top: 8px;
-
-        margin-bottom: 10px;
-
-        text-align: left;
-    }
-
-    .mobile-password-rules p {
-
-        font-size: 0.78rem;
-
-        margin: 5px 0;
-
-        transition: 0.25s ease;
-
-        font-weight: 500;
-    }
-
-    /* 실패 */
-    .mobile-password-rules .invalid {
-
-        color: #999;
-    }
-
-    /* 성공 */
-    .mobile-password-rules .valid {
-
-        color: #00b894;
     }
 }

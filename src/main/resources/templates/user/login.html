@@ -59,42 +59,84 @@
 </script>
 
 <body>
-    <div class="top-mobile-links">
 
-        <a href="/" class="main-link">
-            🏠 MAIN
-        </a>
+    <div class="background"></div>
 
-        <a href="/signup" class="sign-link">
-            🔑 SIGN UP
-        </a>
-    </div>
-    <div class="container right-panel-active">
-        <!-- Sign In -->
-        <div class="container__form container--signin">
-            <!-- sign in 버튼 누르면 UserController /login으로 input 값 전송  -->
-            <form action="/login" method="post" class="form" id="form2">
-                <h2 class="form__title">Sign In</h2>
-                <p th:text="${error}" style="color: red;"></p>
-                <!-- 이메일 변수명 email -->
-                <input type="email" name="email" placeholder="Email" class="input" required />
-                <!-- 비밀번호 변수명 password -->
-                <input type="password" name="password" placeholder="Password" class="input" required />
-                <!-- 비밀번호 찾기 링크 -->
-                <a href="/password" class="link">Forgot your password?</a>
-                <!-- 로그인 버튼 -->
-                <button class="btn">Sign In</button>
-            </form>
-        </div>
+    <main class="layout">
 
-        <!-- Overlay -->
-        <div class="container__overlay">
-            <div class="overlay">
-                <div class="overlay__panel overlay--left">
-                </div>
+        <!-- LEFT -->
+        <section class="hero">
+
+            <div class="badge">
+                AUTH SERVICE
             </div>
-        </div>
-    </div>
+
+            <h1>
+                Secure Login <br>
+                Experience
+            </h1>
+
+            <p>
+                Session 기반 사용자 인증과 <br>
+                Spring Security 보안 기능 구현
+            </p>
+
+            <div class="feature-box">
+
+                <div>✔ Secure Session Login</div>
+
+                <div>✔ Password Encryption</div>
+
+                <div>✔ Railway Deployment</div>
+
+            </div>
+
+        </section>
+
+        <!-- RIGHT -->
+        <section class="card">
+
+            <div class="top-nav">
+
+                <a href="/">Main</a>
+
+                <a href="/signup">Sign Up</a>
+
+            </div>
+
+            <h2>Welcome Back</h2>
+
+            <p class="description">
+                로그인 후 서비스를 이용하세요.
+            </p>
+
+            <form action="/login" method="post" class="form">
+
+                <p th:text="${error}" class="error-message">
+                </p>
+
+                <input type="email" name="email" placeholder="Email" class="input" required>
+
+                <input type="password" name="password" placeholder="Password" class="input" required>
+
+                <a href="/password" class="forgot-link">
+
+                    Forgot Password?
+
+                </a>
+
+                <button class="primary-btn">
+
+                    Sign In
+
+                </button>
+
+            </form>
+
+        </section>
+
+    </main>
+
 </body>
 
 </html>
