@@ -9,6 +9,7 @@ Spring Boot 기반 회원가입 / 로그인 웹 프로젝트
 
 - 🔗 Live Demo  
 https://signup-production-828d.up.railway.app
+└ 기간 만료
 
 - 🔗 GitHub Repository  
 https://github.com/khrkhr316/signup
